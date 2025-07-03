@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Factorial</title>
+  </head>
+  <body>
+    <div class="container">
+      <label for="Input_Number"
+        >Enter the Number to find the factorial value :
+      </label>
+      <input class="Input_Number" type="text" />
+      <button id="btn">Find Factorial</button>
+      <span id="result"></span>
+    </div>
+    <script>
+      const Factorial = (num) => {
+        if (typeof num !== "number" || num < 0 || isNaN(num)) return "Invalid";
+        if (num === 1 || num === 0) return 1;
+        return num * Factorial(num - 1);
+      };
+      let Input_number = document.body.querySelector(".Input_Number");
+      let Result = document.getElementById("result");
+      let button = document.getElementById("btn");
+      Input_number.addEventListener("input", () => {
+        Result.textContent = "";
+      });
+      button.addEventListener("click", () => {
+        let num = parseInt(Input_number.value);
+        let Fact = Factorial(num);
+        if (Fact === "Invalid") {
+          Result.textContent = "Please enter a Valid Number";
+        } else {
+          Result.textContent = Fact;
+        }
+      });
+    </script>
+  </body>
+</html>
+ 
