@@ -11,7 +11,7 @@ function QuestionCard({ question, handleAnswer }) {
         {decodeHTML(question.question)}
       </h3>
       <div className="grid gap-3">
-        {shuffled.map((option, i) => (
+        {shuffled.map((option,i) => (
           <button
             key={i}
             onClick={() => handleAnswer(decodeHTML(option))}
