@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>BG-COLOR-CHANGER</title>
+  </head>
+  <body>
+    <h1 class="Label">Tadaaaa!...This Color Selection is Awesome</h1>
+    <div class="main_container">
+      <div class="color_section">Tomato</div>
+      <div class="color_section">DodgerBlue</div>
+      <div class="color_section">Crimson</div>
+      <div class="color_section">ForestGreen</div>
+      <div class="color_section">Goldenrod</div>
+      <div class="color_section">SlateGray</div>
+      <div class="color_section">Orchid</div>
+      <div class="color_section">DeepSkyBlue</div>
+      <div class="color_section">DarkOrange</div>
+      <div class="color_section">MidnightBlue</div>
+    </div>
+
+    <script>
+      const colorMap = {
+        Tomato: "#FF6347",
+        DodgerBlue: "#1E90FF",
+        Crimson: "#DC143C",
+        ForestGreen: "#228B22",
+        Goldenrod: "#DAA520",
+        SlateGray: "#708090",
+        Orchid: "#DA70D6",
+        DeepSkyBlue: "#00BFFF",
+        DarkOrange: "#FF8C00",
+        MidnightBlue: "#2C3E50",
+      };
+
+      let color_sections = document.querySelectorAll(".color_section");
+
+      color_sections.forEach((section) => {
+        const colorName = section.textContent.trim();
+        const colorCode = colorMap[colorName];
+
+        section.style.backgroundColor = colorCode;
+        section.style.color = "white";
+        section.style.cursor = "pointer";
+
+        section.addEventListener("mouseenter", () => {
+          document.body.style.backgroundColor = colorCode;
+        });
+      });
+    </script>
+  </body>
+</html>

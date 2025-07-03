@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Arithmatic Calculator</title>
+  </head>
+  <body>
+    <div class="calci">
+      <input type="text" class="display" disabled />
+      <div class="typeport">
+        <button class="input" id="span-two">Clear</button>
+        <button class="input">Back</button>
+        <button class="input">/</button>
+        <button class="input">7</button>
+        <button class="input">8</button>
+        <button class="input">9</button>
+        <button class="input">*</button>
+        <button class="input">4</button>
+        <button class="input">5</button>
+        <button class="input">6</button>
+        <button class="input">-</button>
+        <button class="input">1</button>
+        <button class="input">2</button>
+        <button class="input">3</button>
+        <button class="input">+</button>
+        <button class="input" id="span-two">0</button>
+        <button class="input">.</button>
+        <button class="input">=</button>
+      </div>
+    </div>
+
+    <script>
+      let display = document.querySelector(".display");
+      let inputs = document.querySelectorAll(".input"); //all inputs in form of nodelist so that we can easily iterate
+
+      let input_string = "";
+      inputs.forEach((input) => {
+        input.addEventListener("click", () => {
+          let value = input.textContent;
+          if (value === "Clear") {
+            input_string = "";
+            display.value = "";
+          } else if (value === "Back") {
+            input_string = input_string.slice(0, -1);
+            display.value = input_string;
+          } else if (value === "=") {
+            try {
+              input_string = eval(input_string).toString();
+              display.value = input_string;
+            } catch (error) {
+              input_string = "";
+              display.value = "Invalid Input";
+            }
+          } else {
+            input_string += value;
+            display.value = input_string;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Sort</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Sort People by Age (Bubble Sort)</h1>
+
+  <ul id="peopleList"></ul>
+
+  <button onclick="sortPeople()">Sort by Age</button>
+
+   <script>
+   const people = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 20 },
+  { name: "John", age: 25 },
+  { name: "Charlie", age: 30 },
+  { name: "David", age: 22 }
+];
+
+function displayPeople() {
+  const ul = document.getElementById("peopleList");
+  ul.innerHTML = "";
+  people.forEach(person => {
+    const li = document.createElement("li");
+    li.textContent = `${person.name} - Age: ${person.age}`;
+    ul.appendChild(li);
+  });
+}
+
+function sortPeople() {
+  for (let i = 0; i < people.length - 1; i++) {
+    for (let j = 0; j < people.length - i - 1; j++) {
+      if (people[j].age > people[j + 1].age) {
+        let temp = people[j];
+        people[j] = people[j + 1];
+        people[j + 1] = temp;
+      }
+    }
+  }
+  displayPeople(); 
+}
+
+window.onload = displayPeople;
+
+  </script>
+</body>
+</html>
+

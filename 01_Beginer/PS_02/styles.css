@@ -1,0 +1,53 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #a06314;
+}
+
+.calci {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  height: 75vh;
+  width: 100vw;
+  max-width: 400px;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.display {
+  flex: 3;
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+}
+
+.typeport {
+  flex: 7;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+button {
+  background-color: #afa4a4;
+  border: 1px solid #ccc;
+  border-radius: 8%;
+  padding: 10% 0;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+#span-two {
+  grid-column: span 2;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>User Form</title>
+  </head>
+  <body>
+    <form class="form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br />
+      <span id="nameerror"></span>
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" /><br />
+      <span id="mailerror"></span>
+
+      <label for="password">Password:</label>
+      <input type="text" id="password" name="password" /><br />
+      <span id="passworderror"></span>
+
+      <button id="btn">Submit</button>
+    </form>
+    <div id="message"></div>
+    <script>
+      let form = document.querySelector(".form");
+      let name_input = document.getElementById("name");
+      let name_error = document.getElementById("nameerror");
+      let email_input = document.getElementById("email");
+      let email_error = document.getElementById("mailerror");
+      let password_input = document.getElementById("password");
+      let password_error = document.getElementById("passworderror");
+      let Welcome_message = document.getElementById("message");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        name_error.textContent = "";
+        email_error.textContent = "";
+        password_error.textContent = "";
+        let isvalid = true;
+        const name_regex = /^[a-zA-Z]+$/;
+        if (
+          name_input.value.trim() === "" ||
+          !name_regex.test(name_input.value.trim())
+        ) {
+          name_error.textContent = "Please Enter Valid Name";
+          isvalid = false;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email_input.value)) {
+          email_error.textContent = "Please enter a Valid Email";
+          isvalid = false;
+        }
+
+        if (password_input.value.length < 6) {
+          password_error.textContent = "Password must be at least 6 characters";
+          isvalid = false;
+        }
+
+        if(isvalid) {
+            Welcome_message.textContent = `Welcome, ${name_input.value}! You have successfully registered.`
+            form.reset();
+        }
+      });
+    </script>
+  </body>
+</html>
