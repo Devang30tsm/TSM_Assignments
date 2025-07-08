@@ -8,15 +8,17 @@ function UserListPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate network delay
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2 seconds
-
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
-  return <UserListWithLoader loading={loading} />;
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <UserListWithLoader loading={loading} />
+    </div>
+  );
 }
 
 export default UserListPage;

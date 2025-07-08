@@ -56,7 +56,7 @@ export default function Weather() {
       {error && <p className="text-red-600">{error}</p>}
 
       {weatherData && (
-        <div className="bg-blue-100 p-4 rounded shadow space-y-2">
+        <div className="bg-blue-100 p-4 rounded shadow space-y-2  dark:text-black">
           <h2 className="text-xl font-semibold">{weatherData.location}</h2>
           <p>
             <strong>🌤️ Condition:</strong> {weatherData.condition}
