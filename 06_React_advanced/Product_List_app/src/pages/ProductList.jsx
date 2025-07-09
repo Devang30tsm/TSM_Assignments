@@ -37,15 +37,13 @@ function ProductList() {
           </div>
         </div>
 
-        {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {filteredProducts &&
             filteredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
         </div>
-
-        {/* No Results Message */}
+        
         {filteredProducts.length === 0 && (
           <p className="text-center text-gray-600 mt-12 text-lg">
             No products found with this rating filter. Try lowering the filter!
