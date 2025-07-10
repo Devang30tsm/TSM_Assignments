@@ -47,22 +47,24 @@ const ProductCard = React.memo(
 
         <div className="p-4 pt-0">
           {showQualityControl ? (
-            <div className="flex items-center justify-between gap-3 mt-2">
-              <button
-                onClick={onDecrement}
-                className="flex-1 px-2 py-1 text-white font-bold rounded-lg bg-gradient-to-tr from-red-500 via-pink-500 to-red-600 hover:from-red-600 hover:via-pink-600 hover:to-red-700 transition-all"
-              >
-                -
-              </button>
+            <div className="flex items-center justify-between gap-10 mt-2">
+              <div className="flex flex-1/4 items-center gap-2">
+                <button
+                  onClick={onDecrement}
+                  className="flex-1 px-2 py-1 text-white rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium transition-all"
+                >
+                  -
+                </button>
 
-              <span className="text-md font-semibold">{quantity}</span>
+                <span className="text-md font-semibold">{quantity}</span>
 
-              <button
-                onClick={onIncrement}
-                className="flex-1 px-2 py-1 text-white font-bold rounded-lg bg-gradient-to-tr from-green-500 via-emerald-500 to-green-600 hover:from-green-600 hover:via-emerald-600 hover:to-green-700 transition-all"
-              >
-                +
-              </button>
+                <button
+                  onClick={onIncrement}
+                  className="flex-1 px-2 py-1 text-white  rounded-2xl bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium transition-all"
+                >
+                  +
+                </button>
+              </div>
 
               <button
                 onClick={onRemove}
@@ -73,7 +75,7 @@ const ProductCard = React.memo(
             </div>
           ) : (
             <button
-              onClick={() => onAddToCart?.(product)}
+              onClick={onAddToCart}
               disabled={!product.inStock || isInCart}
               className={`mt-4 w-full py-2 rounded-lg font-semibold transition-all text-center ${
                 !product.inStock

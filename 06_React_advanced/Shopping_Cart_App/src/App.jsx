@@ -3,9 +3,12 @@ import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import CartView from "./pages/Cart";
+import { Toaster } from 'react-hot-toast';
 function App() {
   return (
-    <div>
+    <>
+     <Toaster position="top-right" reverseOrder={false} />
+     <div>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -13,6 +16,8 @@ function App() {
         </Routes>
       </Router>
     </div>
+    </>
+   
   );
 }
 
